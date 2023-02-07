@@ -13,7 +13,8 @@ public class LegacyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         if(request.getRequestURL().toString().contains("/legacy")){
-            response.setStatus(HttpStatus.GONE.value());
+            response.setStatus(410);
+            return false;
         }
         return true;
     }
